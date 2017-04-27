@@ -24,9 +24,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _arrData = [[NSArray alloc]initWithArray:[JsonAPI getDataFromJsonFile]];
+//    _arrData = [[NSArray alloc]initWithArray:[JsonAPI getDataFromJsonFile]];
+    _arrData=[JsonAPI getDataFromJsonFile];
     
 //    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    
+    self.tableView.estimatedRowHeight=100;
+    self.tableView.rowHeight=UITableViewAutomaticDimension;
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([WithAttachmentTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([WithAttachmentTableViewCell class])];
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([WithoutAttachmentTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([WithoutAttachmentTableViewCell class])];
@@ -53,18 +57,18 @@
     NotesDataModel *ndm=[[NotesDataModel alloc]init];
     NSDictionary *dict=[[NSDictionary alloc]init];
     dict=_arrData[indexPath.row];
-    ndm.name=[dict objectForKey:@""];
-    ndm.notes=[dict objectForKey:@""];
-    ndm.createDate=[dict objectForKey:@""];
-    ndm.attachments=[NSArray arrayWithArray:[dict objectForKey:@""]];
+    ndm.name=[dict objectForKey:@"name"];
+    ndm.notes=[dict objectForKey:@"notes"];
+    ndm.createDate=[dict objectForKey:@"createDate"];
+    ndm.attachments=[NSArray arrayWithArray:[dict objectForKey:@"attachments"]];
     
     if([ndm.attachments count] > 0)
     {
         WithAttachmentTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:NSStringFromClass([WithAttachmentTableViewCell class])];
-        cell.notesDM=ndm;
+        [cell updateUI:ndm];
         
 //        dispatch_async(dispatch_get_main_queue(), ^{
-//            [self.tableView reloadData];
+//            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:indexPath.row inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
 //        });
         
         return cell;
@@ -74,9 +78,10 @@
     else
     {
         WithoutAttachmentTableViewCell *cell =[tableView dequeueReusableCellWithIdentifier:NSStringFromClass([WithoutAttachmentTableViewCell class])];
-        cell.notesDataM=ndm;
+        [cell updateUi:ndm];
+        
 //        dispatch_async(dispatch_get_main_queue(), ^{
-//            [self.tableView reloadData];
+//            [self.tableView reloadRowsAtIndexPaths:@[[NSIndexPath indexPathForRow:indexPath.row inSection:0]] withRowAnimation:UITableViewRowAnimationFade];
 //        });
         return cell;
 
@@ -84,6 +89,8 @@
 
     
 }
+
+
 
 
 /*

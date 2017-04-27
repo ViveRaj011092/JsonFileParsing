@@ -16,4 +16,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLbl;
 @property(strong,nonatomic) NotesDataModel *notesDataM;
 
+-(void)updateUi:(NotesDataModel*)ndm;
+
 @end

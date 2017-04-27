@@ -15,11 +15,16 @@
     // Initialization code
     _nameTextView.scrollEnabled=NO;
     _nameTextView.textContainerInset=UIEdgeInsetsMake(0, -self.nameTextView.textContainer.lineFragmentPadding, 0, -self.nameTextView.textContainer.lineFragmentPadding);
+//    [self updateUI];
     
-    _nameTextView.text=[NSString stringWithFormat:@"%@ added a note:",_notesDM.name];
-    _descriptionLabel.text=_notesDM.notes;
-    _dateLabel.text=[NSString stringWithFormat:@"%@",_notesDM.createDate];
     
+}
+
+-(void)updateUI:(NotesDataModel*)ndm
+{
+    _nameTextView.text=[NSString stringWithFormat:@"%@ added a note:",ndm.name];
+    _descriptionLabel.text=ndm.notes;
+    _dateLabel.text=[NSString stringWithFormat:@"%@",ndm.createDate];
     
 }
 

@@ -14,8 +14,9 @@
 {
     NSString *path=[[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
     NSData *data=[NSData dataWithContentsOfFile:path];
-    return [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-    
+    NSArray *arr =[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+
+    return arr;
 }
 
 @end

@@ -16,4 +16,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property(strong,nonatomic) NotesDataModel *notesDM;
+-(void)updateUI:(NotesDataModel*)ndm;
 @end
