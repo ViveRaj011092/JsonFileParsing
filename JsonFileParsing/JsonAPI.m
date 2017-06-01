@@ -7,16 +7,21 @@
 //
 
 #import "JsonAPI.h"
+#import "ServiceManager.h"
 
 @implementation JsonAPI
 
 +(NSArray*)getDataFromJsonFile
 {
+//    NSURL *url=[NSURL ]
     NSString *path=[[NSBundle mainBundle] pathForResource:@"data" ofType:@"json"];
     NSData *data=[NSData dataWithContentsOfFile:path];
     NSArray *arr =[NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    
+    [ServiceManager sharedInstance];
 
     return arr;
 }
 
 @end
+ 

@@ -11,6 +11,8 @@
 #import "WithoutAttachmentTableViewCell.h"
 #import "JsonAPI.h"
 #import "NotesDataModel.h"
+#import "ServiceManager.h"
+#import "TableViewcellProtocol.h"
 
 
 @interface PersonTableViewController ()
@@ -19,6 +21,8 @@
 }
 
 @property(strong,nonatomic) NSArray *arrData;
+@property(assign,nonatomic) ServiceStatus service;
+@property(nonatomic) id<ShowAlert> alertDelegate;
 
 @end
 
@@ -29,6 +33,30 @@
     emailId=@"vivekraj011092@gmail.com";
 //    _arrData = [[NSArray alloc]initWithArray:[JsonAPI getDataFromJsonFile]];
     _arrData=[JsonAPI getDataFromJsonFile];
+    
+    [[ServiceManager sharedInstance] callServices:eNotesList withCompletionStatus:^(ServiceStatus sStatus) {
+        _service=sStatus;
+        [self.alertDelegate configureAlert:_service];
+//        if(_service == eNetworkConnected){
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            
+//            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Network is Connected" message:nil preferredStyle:UIAlertControllerStyleAlert];
+//            [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+//            [self presentViewController:alert animated:YES completion:nil];
+//            
+//        });
+//        }else{
+//            dispatch_async(dispatch_get_main_queue(), ^{
+//                
+//                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Network Error" message:nil preferredStyle:UIAlertControllerStyleAlert];
+//                [alert addAction:[UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil]];
+//                [self presentViewController:alert animated:YES completion:nil];
+//                
+//            });
+//        }
+    } withCompletionService:nil];
+    
+    
     
 //    [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     

@@ -22,6 +22,10 @@
 		446B8C6F1EAFB54B00F7EBCA /* WithoutAttachmentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 446B8C6D1EAFB54B00F7EBCA /* WithoutAttachmentTableViewCell.m */; };
 		446B8C701EAFB54B00F7EBCA /* WithoutAttachmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 446B8C6E1EAFB54B00F7EBCA /* WithoutAttachmentTableViewCell.xib */; };
 		446B8C741EAFD0BF00F7EBCA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 446B8C731EAFD0BF00F7EBCA /* ViewController.m */; };
+		446CDA591EDC9CD600C0D893 /* ServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 446CDA581EDC9CD600C0D893 /* ServiceManager.m */; };
+		448B97961EE06FEC00AECBE7 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 448B97951EE06FEC00AECBE7 /* Constants.m */; };
+		448B979A1EE07BD400AECBE7 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 448B97991EE07BD400AECBE7 /* Reachability.m */; };
+		448B979E1EE0924100AECBE7 /* Alerts.m in Sources */ = {isa = PBXBuildFile; fileRef = 448B979D1EE0924100AECBE7 /* Alerts.m */; };
 		44E2934D1ED1A69500778EDB /* TableViewcellProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 44E2934C1ED1A69500778EDB /* TableViewcellProtocol.m */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +54,14 @@
 		446B8C6E1EAFB54B00F7EBCA /* WithoutAttachmentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WithoutAttachmentTableViewCell.xib; sourceTree = "<group>"; };
 		446B8C721EAFD0BF00F7EBCA /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		446B8C731EAFD0BF00F7EBCA /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		446CDA571EDC9CD600C0D893 /* ServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ServiceManager.h; sourceTree = "<group>"; };
+		446CDA581EDC9CD600C0D893 /* ServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ServiceManager.m; sourceTree = "<group>"; };
+		448B97941EE06FEC00AECBE7 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		448B97951EE06FEC00AECBE7 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		448B97981EE07BD400AECBE7 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		448B97991EE07BD400AECBE7 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		448B979C1EE0924100AECBE7 /* Alerts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Alerts.h; sourceTree = "<group>"; };
+		448B979D1EE0924100AECBE7 /* Alerts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Alerts.m; sourceTree = "<group>"; };
 		44E2934B1ED1A69500778EDB /* TableViewcellProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewcellProtocol.h; sourceTree = "<group>"; };
 		44E2934C1ED1A69500778EDB /* TableViewcellProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewcellProtocol.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,10 +96,13 @@
 		446B8C371EAFB0EB00F7EBCA /* JsonFileParsing */ = {
 			isa = PBXGroup;
 			children = (
+				448B979B1EE0922300AECBE7 /* Utils */,
+				448B97971EE07BB500AECBE7 /* Frameworks */,
+				44E5CE341EDF1EB200E97798 /* Constants */,
 				44E2934A1ED1A63600778EDB /* Delegates */,
 				446B8C711EAFD0A000F7EBCA /* Test */,
 				446B8C5C1EAFB3AA00F7EBCA /* View */,
-				446B8C5A1EAFB31200F7EBCA /* Model Provider */,
+				446B8C5A1EAFB31200F7EBCA /* Service Provider */,
 				446B8C591EAFB2F500F7EBCA /* Model */,
 				446B8C581EAFB2D900F7EBCA /* ViewControllers */,
 				446B8C521EAFB0FC00F7EBCA /* Main */,
@@ -137,13 +152,15 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
-		446B8C5A1EAFB31200F7EBCA /* Model Provider */ = {
+		446B8C5A1EAFB31200F7EBCA /* Service Provider */ = {
 			isa = PBXGroup;
 			children = (
 				44693DF71EB115B9003E3F9F /* JsonAPI.h */,
 				44693DF81EB115B9003E3F9F /* JsonAPI.m */,
+				446CDA571EDC9CD600C0D893 /* ServiceManager.h */,
+				446CDA581EDC9CD600C0D893 /* ServiceManager.m */,
 			);
-			name = "Model Provider";
+			name = "Service Provider";
 			sourceTree = "<group>";
 		};
 		446B8C5C1EAFB3AA00F7EBCA /* View */ = {
@@ -168,6 +185,24 @@
 			name = Test;
 			sourceTree = "<group>";
 		};
+		448B97971EE07BB500AECBE7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				448B97981EE07BD400AECBE7 /* Reachability.h */,
+				448B97991EE07BD400AECBE7 /* Reachability.m */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		448B979B1EE0922300AECBE7 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				448B979C1EE0924100AECBE7 /* Alerts.h */,
+				448B979D1EE0924100AECBE7 /* Alerts.m */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		44E2934A1ED1A63600778EDB /* Delegates */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +210,15 @@
 				44E2934C1ED1A69500778EDB /* TableViewcellProtocol.m */,
 			);
 			name = Delegates;
+			sourceTree = "<group>";
+		};
+		44E5CE341EDF1EB200E97798 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				448B97941EE06FEC00AECBE7 /* Constants.h */,
+				448B97951EE06FEC00AECBE7 /* Constants.m */,
+			);
+			name = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,16 +296,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				448B979A1EE07BD400AECBE7 /* Reachability.m in Sources */,
 				44693DF91EB115B9003E3F9F /* JsonAPI.m in Sources */,
 				446B8C741EAFD0BF00F7EBCA /* ViewController.m in Sources */,
 				446B8C571EAFB2C800F7EBCA /* PersonTableViewController.m in Sources */,
+				446CDA591EDC9CD600C0D893 /* ServiceManager.m in Sources */,
 				44E2934D1ED1A69500778EDB /* TableViewcellProtocol.m in Sources */,
+				448B979E1EE0924100AECBE7 /* Alerts.m in Sources */,
 				446B8C3D1EAFB0EB00F7EBCA /* AppDelegate.m in Sources */,
 				446B8C6A1EAFB53500F7EBCA /* WithAttachmentTableViewCell.m in Sources */,
 				446B8C461EAFB0EB00F7EBCA /* JsonFileParsing.xcdatamodeld in Sources */,
 				446B8C6F1EAFB54B00F7EBCA /* WithoutAttachmentTableViewCell.m in Sources */,
 				44693DFC1EB115EE003E3F9F /* NotesDataModel.m in Sources */,
 				446B8C3A1EAFB0EB00F7EBCA /* main.m in Sources */,
+				448B97961EE06FEC00AECBE7 /* Constants.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
