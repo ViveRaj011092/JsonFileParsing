@@ -7,10 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ServiceManager.h"
+
 
 @protocol ClickInsideCell <NSObject>
 
 -(void)clickHyperlinkText;
+
+@end
+
+@protocol ShowAlert <NSObject>
+
+-(void)configureAlert:(ServiceStatus)sStatus;
 
 @end
 @interface TableViewcellProtocol : NSObject

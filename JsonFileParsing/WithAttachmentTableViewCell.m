@@ -19,6 +19,7 @@
     // Initialization code
     _nameTextView.scrollEnabled=NO;
     _nameTextView.textContainerInset=UIEdgeInsetsMake(0, -self.nameTextView.textContainer.lineFragmentPadding, 0, -self.nameTextView.textContainer.lineFragmentPadding);
+    _nameTextView.delegate=self;
 //    [self updateUI];
     
     
@@ -57,14 +58,26 @@
     
     ///////////
     NSArray *attachment = [[NSArray alloc]initWithArray:ndm.attachments];
+    [_attachmentStactView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     for(NSDictionary *item in attachment)
     {
         NSString *baseStr = [NSString stringWithFormat:@"data:image/png;base64,%@",[item objectForKey:@"name"]];
         NSURL *imageUrl=[NSURL URLWithString:baseStr];
         NSData *imageData=[NSData dataWithContentsOfURL:imageUrl];
         UIImageView *imageView=[[UIImageView alloc]initWithImage:[UIImage imageWithData:imageData]];
-        imageView.contentMode=UIViewContentModeScaleAspectFit;
+        CGRect frame= imageView.frame;
+        frame.size.width=50;
+        imageView.frame=frame;
+//        [imageView.heightAnchor constraintEqualToConstant:50].active=true;
+//        [imageView.widthAnchor constraintEqualToConstant:50].active=true;
+//        imageView.contentMode=UIViewContentModeScaleAspectFit;
+//        if (_attachmentStactView.arrangedSubviews.count > 0) {
+//            [_attachmentStactView removeArrangedSubview:imageView];
+//            [imageView removeFromSuperview];
+//        }
+        
         [_attachmentStactView addArrangedSubview:imageView];
+        
         [UIView animateWithDuration:0.25 animations:^{
             [self.attachmentStactView layoutIfNeeded];
         }];
